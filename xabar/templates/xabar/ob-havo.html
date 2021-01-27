@@ -1,0 +1,13 @@
+{% extends 'asos.html' %}
+{% load static %}
+
+{% block content %}
+<div class="main-box">
+    <div class="large-box no-border ob-havo">
+        <img src="http://openweathermap.org/img/w/{{ ob_havo.belgi}}.png" alt="Image">
+        <h5>{{ ob_havo.shahar }}</h5>
+        <p>{{ ob_havo.harorat|floatformat:0 }}° C</p>
+        <p>{{ ob_havo.tarif|default:"ochiq"}}</p>
+    </div>
+</div>
+{% endblock content %}

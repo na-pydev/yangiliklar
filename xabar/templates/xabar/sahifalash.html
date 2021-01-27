@@ -1,0 +1,17 @@
+
+<table class="paginator">
+    <tr>
+        <td class="pagination-step">
+            {% if page.has_previous %}
+                <a href="?page={{page.previuos_page_number}}" ><button class="btn">Oldingisi</button></a>
+            {% endif %}
+            <span>
+                <span class="page-box">{{page.number}}</span> {% if page.has_next %} . . . <span class="page-box">{{page.paginator.num_pages}}</span>{% endif %}
+            </span>
+            {% if page.has_next %}
+                <a href="?page={{page.next_page_number}}"><button class="btn">Keyingisi</button></a>      
+            {% endif %}       
+            </span>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,92 @@
+{% load static %}
+{% load xabar_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/earth.png' %}">
+    <script src="https://kit.fontawesome.com/f68d03869f.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yangiliklar</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- <meta http-equiv="refresh" content="8"> -->
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="name-search">
+                <div>
+                    <h1>Eng so'nggi yangiliklar</h1>
+                    <p>Rasmiy, ishonchli manbalardan olingan yangiliklar</p>
+                </div>
+                <form action="{% url 'xabar:bosh_sahifa' %}">
+                    <input type="text" name="soz" placeholder="So'zni kiriting...">
+                    <button class="btn" id="izlash" value="izlash">Izlash</button>
+                </form>
+            </div>
+
+            {% with xorijiy='tashqi' mahalliy='ichki' %}
+
+            <ul>
+                <li class="nav-link"><a href="{% url 'xabar:bosh_sahifa' %}"><i class="fas fa-home"></i> Bosh sahifa</a>
+                </li>
+                <li class="nav-link"><a href="{% url 'xabar:toifa' xorijiy %}"><i class="fas fa-globe"></i> Xorijiy</a>
+                </li>
+                <li class="nav-link"><a href="{% url 'xabar:toifa' mahalliy %}"><i class="fas fa-map-marker-alt"></i>
+                        Mahalliy</a></li>
+                <li class="nav-link"><a href="{% url 'xabar:ob-havo' %}"><i class="fas fa-cloud-sun-rain"></i> Ob
+                        havo</a></li>
+            </ul>
+            {% endwith %}
+        </nav>
+    </header>
+    <div class="container">
+        {% if soz %}
+        <h2>"{{soz}}" so'zi mavjud bo'lgan yangiliklar</h2>
+        <hr>
+        {% endif %}
+        <div class="content">
+            {% block content %}
+
+            {% endblock content %}
+            <div class="aside-boxes">
+                <div class="aside box1">
+                    <!-- Please do not edit this code Mconvert currency-rates-widget starts here -->
+                    <script
+                        type="text/javascript">var w = '100%'; var h = '386'; var b = 'usd'; var a = '1'; var l = 'en'; var t = 'blue'; var c = 'cny,aud,cad,chf,jpy,eur,hkd,btc'; var ty = '1'; var f = '2'; var ht = 'mconvert.net/';</script>
+                    <a href="https://mconvert.net/" title="Currency Exchange Rates">
+                        <script src="//mconvert.net/currency_rates"></script>
+                    </a>
+                </div>
+                <div class="aside box2">
+                    <h2>Eng ko'p o'qilgan</h2>
+                    <ul class="aside-list">
+                        {% kop_oqilgan as xabarlar %}
+                        {% for yangilik in xabarlar%}
+                        {% if yangilik.id == xabar.id %}
+
+                        {% else %}
+                        <li>
+                            <img src="{{yangilik.image_url}}" alt="">
+                            <a class="offer_links" href="{% url 'xabar:info' yangilik.id %}">{{yangilik.mavzu}}</a>
+                        </li>
+                        {% endif %}
+                        {% empty %}
+                        Hozircha yangiliklar yo'q
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <p>&COPY; Nurmatov Abdurakhimbek 2020</p>
+        </div>
+    </footer>
+</body>
+
+</html>

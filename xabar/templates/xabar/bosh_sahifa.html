@@ -1,0 +1,31 @@
+{% extends 'asos.html' %}
+{% load static %}
+{% block content %}
+<div class="main-box">
+    {% for xabar in xabarlar %}
+    {% if forloop.counter == 1 %}
+    <div class="large-box">
+        <img src="{{xabar.image_url}}" alt="">
+        <p
+            class="date">{{xabar.yangilangan_vaqti|date:'d-m-Y'}}  <i class="far fa-eye"></i> {{xabar.korildi}}  Manba:{{xabar.muallif}}</p>
+        <h2>{{xabar.mavzu}}</h2>
+        <p>{{xabar.matn|truncatewords:20}}</p>
+        <a href="{% url 'xabar:info' xabar.id %}" class="btn">O'qish</a>
+    </div>
+    {% else %}
+    <div class="small-box">
+        <div class="image-box">
+            <img src="{{xabar.image_url}}" alt="">
+            <p class="date">{{xabar.yangilangan_vaqti|date:'d-m-Y | H:i'}}</p>
+        </div>
+        <div class="text-box">
+            <h2>{{xabar.mavzu}}</h2>
+            <p>{{xabar.matn|truncatewords:17}}</p>
+            <a href="{% url 'xabar:info' xabar.id %}" class="btn">O'qish</a>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% include 'xabar/sahifalash.html' with page=xabarlar %}
+</div>
+{% endblock content %}

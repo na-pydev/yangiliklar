@@ -1,0 +1,1 @@
+web: gunicorn yangiliklar.wsgi --log-file -

@@ -1,0 +1,15 @@
+{% extends 'asos.html' %}
+
+
+{% block content %}
+<div class="main-box">
+    <div class="large-box no-border">
+        <img src="{{xabar.image_url}}" alt="">
+        <p
+            class="date">{{xabar.yangilangan_vaqti|date:'d-m-Y | H:i'}}    <i class="far fa-eye"></i> {{xabar.korildi}}    Manba: {{xabar.muallif}}</p>
+        <h2>{{xabar.mavzu}}</h2>
+        <hr>
+        <p>{{xabar.matn|linebreaks}}</p>
+    </div>
+</div>
+{% endblock content %}
