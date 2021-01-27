@@ -26,7 +26,7 @@ SECRET_KEY = 'usybb(@*@3k_lokv^m$a*m@%+$ifj@an@4kgcrr0syh1q23y4_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["yangiliklar.herokuapp.com"]
 
 
 # Application definition
