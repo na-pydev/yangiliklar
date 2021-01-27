@@ -26,6 +26,10 @@
     </div>
     {% endif %}
     {% endfor %}
-    {% include 'xabar/sahifalash.html' with page=xabarlar %}
+    {% if n %}
+        {% include 'xabar/sahifalash.html' with page=xabarlar %}
+    {% else %}
+        <h2>Hech narsa topilmadi.</h2>
+    {% endif %}
 </div>
 {% endblock content %}

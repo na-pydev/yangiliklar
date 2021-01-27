@@ -196,7 +196,9 @@ footer {
 .ob-havo {
     font-size: 1.2em;
     position: relative;
-    height:500px;
+    height: 400px;
+    object-fit: contain;
+    object-position: right;
     text-indent: 2em;
     color:white
 }
@@ -254,9 +256,14 @@ footer {
     header {
         position: relative;
     }
+
     .navbar ul {
         flex-direction: column;
         text-align: center;
+    }
+
+    .nav-link {
+        margin-top: 1em;
     }
 
     .content {

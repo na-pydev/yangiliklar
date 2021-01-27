@@ -13,7 +13,7 @@ def bosh_sahifa(request):
     natija = []
     if soz != None:
         for xabar in xabarlar:
-            if soz.lower() in xabar.mavzu.lower():
+            if soz.lower() in xabar.mavzu.lower() or soz.lower() in xabar.matn.lower():
                 natija.append(xabar)
         xabarlar = natija
     
@@ -28,8 +28,10 @@ def bosh_sahifa(request):
     except EmptyPage:
         xabarlar = paginator.page(paginator.num_pages)
 
+    n = len(xabarlar)
 
-    context={'xabarlar': xabarlar, 'page': page, 'soz':soz}
+
+    context={'xabarlar': xabarlar, 'page': page, 'soz':soz, 'n': n}
 
 
 
@@ -70,8 +72,9 @@ def toifa(request, toifa):
     except EmptyPage:
         xabarlar = paginator.page(paginator.num_pages)
 
+    n = len(xabarlar)
 
-    context={'xabarlar': xabarlar, 'page': page}
+    context={'xabarlar': xabarlar, 'page': page, 'n':n}
 
 
 
