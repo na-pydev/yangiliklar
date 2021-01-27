@@ -165,6 +165,7 @@ footer {
     display: flex;
     justify-content: space-between;
     margin-bottom: 2em;
+    padding-bottom: 1em;
     border-bottom: gray solid 2px;
 }
 
