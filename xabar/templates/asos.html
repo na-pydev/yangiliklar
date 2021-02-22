@@ -27,22 +27,25 @@
                     <button class="btn" id="izlash" value="izlash">Izlash</button>
                 </form>
             </div>
-
-            {% with xorijiy='tashqi' mahalliy='ichki' %}
-
-            <ul>
-                <li class="nav-link"><a href="{% url 'xabar:bosh_sahifa' %}"><i class="fas fa-home"></i> Bosh sahifa</a>
-                </li>
-                <li class="nav-link"><a href="{% url 'xabar:toifa' xorijiy %}"><i class="fas fa-globe"></i> Xorijiy</a>
-                </li>
-                <li class="nav-link"><a href="{% url 'xabar:toifa' mahalliy %}"><i class="fas fa-map-marker-alt"></i>
-                        Mahalliy</a></li>
-                <li class="nav-link"><a href="{% url 'xabar:ob-havo' %}"><i class="fas fa-cloud-sun-rain"></i> Ob
-                        havo</a></li>
-            </ul>
-            {% endwith %}
         </nav>
     </header>
+    <div class="navigation">
+        <div class="container">
+            {% with xorijiy='tashqi' mahalliy='ichki' %}
+
+        <ul class="header-nav">
+            <li class="nav-link"><a href="{% url 'xabar:bosh_sahifa' %}"><i class="fas fa-home"></i> <span>Bosh sahifa</span></a>
+            </li>
+            <li class="nav-link"><a href="{% url 'xabar:toifa' xorijiy %}"><i class="fas fa-globe"></i> <span>Xorijiy</span></a>
+            </li>
+            <li class="nav-link"><a href="{% url 'xabar:toifa' mahalliy %}"><i class="fas fa-map-marker-alt"></i>
+                    <span>Mahalliy</span></a></li>
+            <li class="nav-link"><a href="{% url 'xabar:ob-havo' %}"><i class="fas fa-cloud-sun-rain"></i> <span>Ob
+                    havo</span></a></li>
+        </ul>
+        {% endwith %}
+        </div>
+    </div>
     <div class="container">
         {% if soz %}
         <h2>"{{soz}}" so'zi mavjud bo'lgan yangiliklar</h2>

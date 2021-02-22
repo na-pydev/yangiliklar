@@ -25,11 +25,17 @@ img {
     margin-top: 1em;
 }
 
-header {
-    background:rgb(244, 245, 244);
+.navigation {
+    background:rgb(43, 61, 226);
     position: sticky;
     left: 0; 
     top:0;
+    z-index: 100;
+}
+
+header {
+    background:rgb(43, 61, 226);
+    margin-bottom: -1.3em;
 }
 
 .name-search {
@@ -71,30 +77,30 @@ header {
 .navbar h1 {
     margin-top: 0;
     margin-bottom:0;
-    font-size: 2rem
+    font-size: 2rem;
+    color: var(--light);
 }
 
 .navbar p {
     margin-top: 0;
     margin-bottom: 0;
     font-size: 1rem;
+    color: var(--light);
 }
 
-.navbar ul {
+.header-nav {
     box-sizing: border-box;
     display: flex;
     justify-content: space-around;
     list-style: none;
     font-size: 1.25rem;
-    margin-bottom: 0.5em;
-    margin-top: 0.5em;
     padding: 0.5em;
-    box-sizing: border-box;
 }
+
 
 .nav-link a {
     text-decoration: none;
-    color:rgb(43, 61, 226);
+    color:var(--light);
     text-transform: capitalize;
 }
 
@@ -259,13 +265,8 @@ footer {
         position: relative;
     }
 
-    .navbar ul {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .nav-link {
-        margin-top: 1em;
+    .header-nav .nav-link a span {
+        display: none;
     }
 
     .content {
